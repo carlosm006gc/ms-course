@@ -21,9 +21,9 @@ import java.util.Optional;
 @RestController
 @RequestMapping(value = "/workers")
 public class WorkerController {
-    private static Logger logger = LoggerFactory.getLogger(WorkerController.class);
     @Value("${test.config}")
     private String testConfig;
+    private static Logger logger = LoggerFactory.getLogger(WorkerController.class);
     @Autowired
     private Environment env;
     @Autowired
@@ -44,13 +44,13 @@ public class WorkerController {
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<Worker> findById(@PathVariable Long id) {
-        /*
+
 		try {
 			Thread.sleep(3000L);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		*/
+
         logger.info("PORT = " + env.getProperty("local.server.port"));
         Optional<Worker> obj = workerService.findById(id);
         if(!obj.isPresent()) {
