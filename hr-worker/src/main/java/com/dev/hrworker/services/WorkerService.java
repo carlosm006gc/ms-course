@@ -10,15 +10,11 @@ import java.util.Optional;
 
 @Service
 public class WorkerService {
-
     @Autowired
     private WorkerRepository workerRepository;
-
-
     public Optional<Worker> findById(Long id) {
         return workerRepository.findById(id);
     }
-
     public List<Worker> findAll() {
         return workerRepository.findAll();
     }
