@@ -1,14 +1,12 @@
 package com.dev.hroauth.entities;
-
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 public class User implements UserDetails, Serializable {
     private static final long serialVersionUID = 1L;
@@ -91,6 +89,7 @@ public class User implements UserDetails, Serializable {
             return false;
         return true;
     }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles.stream().map(x -> new SimpleGrantedAuthority(x.getRoleName()))

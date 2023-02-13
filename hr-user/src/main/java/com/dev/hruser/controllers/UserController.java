@@ -1,7 +1,7 @@
 package com.dev.hruser.controllers;
 
 import com.dev.hruser.entities.User;
-import com.dev.hruser.service.UserService;
+import com.dev.hruser.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/users")
 public class UserController {
     @Autowired
-    private UserService repository;
+    private UserRepository repository;
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<User> findById(@PathVariable Long id) {
