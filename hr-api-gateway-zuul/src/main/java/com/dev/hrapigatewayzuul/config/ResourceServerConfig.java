@@ -1,4 +1,4 @@
-package config;
+package com.dev.hrapigatewayzuul.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
